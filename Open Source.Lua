@@ -65,10 +65,56 @@ TextBox.TextColor3 = Color3.new(255, 255, 255)
 TextBox.Font = Enum.Font.Code
 TextBox.Parent = Gui
 
+local Close = Instance.new("TextButton")
+Close.Size = UDim2.new(0, 50, 0, 50)
+Close.Position = UDim2.new(0, 360, 0, 0)
+Close.BackgroundColor3 = Color3.fromRGB(188, 0, 0)
+Close.BorderColor3 = Color3.new(0, 0, 0)
+Close.BorderSizePixel = 1
+Close.Text = "X"
+Close.TextColor3 = Color3.new(255, 0, 0)
+Close.Font = Enum.Font.Code
+Close.Parent = Gui
+Close.TextSize = 24
+
+local Toogle = Instance.new("Frame")
+Toogle.Size = UDim2.new(0, 90, 0, 60)
+Toogle.Position = UDim2.new(0, 0, 0, 100)
+Toogle.BackgroundColor3 = Color3.fromRGB(163, 162, 165)
+Toogle.BorderColor3 = Color3.new(0, 0, 0)
+Toogle.BorderSizePixel = 1
+Toogle.Active = true
+Toogle.Draggable = true
+Toogle.Parent = gui
+
+local ToogleO = Instance.new("TextButton")
+ToogleO.Size = UDim2.new(0, 70, 0, 45)
+ToogleO.Position = UDim2.new(0, 11, 0, 7)
+ToogleO.BackgroundColor3 = Color3.fromRGB( 99, 99, 99)
+ToogleO.BorderColor3 = Color3.new(0, 0, 0)
+ToogleO.BorderSizePixel = 1
+ToogleO.Text = "Open"
+ToogleO.TextColor3 = Color3.fromRGB(78, 78, 78)
+ToogleO.Font = Enum.Font.Arcade
+ToogleO.Parent = Toogle
+ToogleO.TextSize = 15
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 8)
+UICorner.Parent = Toogle
+
 -- Script
 
 Clear.MouseButton1Click:Connect(function()
 TextBox.Text = ""
+end)
+
+ToogleO.MouseButton1Click:Connect(function()
+Gui.Visible = true
+end)
+
+Close.MouseButton1Click:Connect(function()
+Gui.Visible = fasle
 end)
 
 Execute.MouseButton1Click:Connect(function()
@@ -78,4 +124,3 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
         Text = "Load Script Success!"
     })
 end)
-
